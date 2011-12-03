@@ -2,6 +2,7 @@ package sdy;
 import java.util.Vector;
 
 import main.Card;
+import main.CardAttriubtes.CardType;
 import main.Effect;
 import main.table;
 import main.CardAttriubtes;
@@ -9,7 +10,7 @@ import main.utils;
 public  class SDY030 extends Effect
 {
     
-    public final CardAttriubtes card =CardAttriubtes.SPELL;
+    public final CardType card = CardType.SPELL;
     @Override
 //    Select 1 Monster Card from either your opponent's 
 //    or your own graveyard and place it on the field under 
