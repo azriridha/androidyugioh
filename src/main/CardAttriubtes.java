@@ -62,5 +62,42 @@ public class CardAttriubtes
     {
         NORMAL,COUNTER,COUNTINUOUS;
     }
+    
+    public enum Attribute
+    {
+    	DARK,EARTH,WIND,WATER,LIGHT,FIRE;
+    }
+    public enum SubType
+    {
+    	Spellcaster
+    	Machine
+    	Fiend
+    	Rock
+    	Insect
+    	Warrior
+    	Plant
+    	Dragon
+    	Reptile
+    	Thunder
+    	Fiend/Tuner
+    	Beast-Warrior
+    	Beast
+    	Psychic
+    	Sea SERPANT
+    	FAIRY
+    	PYRO
+    	NORMAL
+    	EQUIP
+    	CONTINUOUS
+    	FIELD
+    	RITUAL
+    	QUICK-PLAY
+    	COUNTER
+    	WINGED BEAST
+    	ZOMBIE
+    	FISH
+    	AQUA
+    	DINOSAOR
+    }
 }
 

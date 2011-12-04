@@ -1,22 +1,29 @@
 package main;
 
-public class Card
+import main.CardAttriubtes.CardType;
+import main.CardAttriubtes.MonsterType;
+import main.CardAttriubtes.SpellType;
+import main.CardAttriubtes.TrapTypes;
+
+abstract public class Card
 {
+	public String packCode;
 public String cardName;
 public String cardCode;
 public String cardImageURL;
-public boolean visible;
-public CardAttriubtes.CardType type;
-public CardAttriubtes.MonsterType monsterType;
-public CardAttriubtes.SpellType spellType;
-public CardAttriubtes.TrapTypes trapType;
+public CardType type;
+public MonsterType monsterType;
+public SpellType spellType;
+public TrapTypes trapType;
+public Attributes attrib;
+public SubType subType;
 public int attack;
 public int defence;
-public boolean attacking;
-public Effect cardEffect;
+public String description;
+Class card;
 
 
-public Card(String cardName, String cardCode, String cardImageURL,CardAttriubtes.CardType type)
+public Card(String cardName, String cardCode, String cardImageURL,CardType type)
 {
     this.cardName = cardName;
     this.cardCode = cardCode;
