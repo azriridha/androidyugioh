@@ -1,0 +1,22 @@
+package PSV;
+import main.Card;
+import main.CardAttriubtes.Attribute;
+import main.CardAttriubtes.CardType;
+import main.CardAttriubtes.MonsterType;
+import main.CardAttriubtes.SubType;
+import main.table;
+public  class PSV045 extends Card
+{
+public PSV045()
+{
+ super("PSV","Darkfire Soldier #2","PSV-045","/images/psv/PSV-045.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.FIRE,SubType.PYRO,4,1700,1100,"A warrior who gained immeasurable power from the heart of a volcano.");
+}  
+    public void mainEffect(table gameTable,int mainPlayer)
+    {}
+    @Override
+    public void secondEffect(table gameTable,int mainPlayer)
+    {}
+    @Override
+    public void triggerEffect(Card cardPlayed)
+    {}
+}
