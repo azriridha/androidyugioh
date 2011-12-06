@@ -5,6 +5,9 @@ import java.util.Vector;
 
 public class table
 {
+    public static int SPELLZONE = 0;
+    public static int MONSTERZONE = 1;
+    
     Thread cardPlayedtrigger = new Thread(new Runnable() {
         
         @Override
@@ -17,25 +20,18 @@ public class table
             }
         }
     });
-    Vector<Card> triggerList = new Vector<Card>();
-    Vector<Vector<Card>> hands = new Vector<Vector<Card>>(2);
-    Vector<Vector<Card>> deck = new Vector<Vector<Card>>(2);
-    Vector<Vector<Card>> graveyard = new Vector<Vector<Card>>(2);
-    Vector<Vector<Card>> fusionPile = new Vector<Vector<Card>>(2);
-    Vector<Vector<Card>> outOfPlayPile = new Vector<Vector<Card>>(2); 
+    public static Vector<Card> triggerList = new Vector<Card>();
+    public static Vector<Vector<Card>> hands = new Vector<Vector<Card>>(2);
+    public static Vector<Vector<Card>> deck = new Vector<Vector<Card>>(2);
+    public static Vector<Vector<Card>> graveyard = new Vector<Vector<Card>>(2);
+    public static Vector<Vector<Card>> fusionPile = new Vector<Vector<Card>>(2);
+    public static Vector<Vector<Card>> outOfPlayPile = new Vector<Vector<Card>>(2); 
     //player one is hands.get(0);
     
-    Card[][][] field = new Card[2][2][5];
-//    player one
-//    plyer one monster field = Card[0][1][0-4]
-//    plyer one spell/trap field = Card[0][0][0-4]
+    public static MonsterZone[][] monsterZone = new MonsterZone[2][5];
+    public static SpellZone[][] spellZone = new SpellZone[2][5];
     
-//    player two
-//    plyer two monster field = Card[1][1][0-4]
-//    plyer two spell/trap field = Card[1][0][0-4]
-    
-    
-    int[] lifepoints = new int[2];
+    public static int[] lifepoints = new int[2];
     
 /**
  * Adds a card to the field in atk/def faceup/down
@@ -54,9 +50,9 @@ public class table
      * @param player
      * @param faceUp
      */
-    public void addSpellToField(Vector<Card> card,int player,boolean faceUp)
+    public void addSpellToField(Card card,int player,boolean faceUp)
     {
-        
+        this.addCard(card, SPELLZONE, player,faceUp,false);
     }
     /**
      * adds a monster card to the field
@@ -67,7 +63,7 @@ public class table
      */
     public void addMonsterToField(Card card,int player,boolean faceUp,boolean defence)
     {
-        this.addCard(card, 1, player);
+        this.addCard(card, MONSTERZONE, player,faceUp,defence);
     }
     /**
      * adds a monster card to the field and asks if it is in defence 
@@ -98,11 +94,11 @@ public class table
    
     public void addCardsToGraveyard(Vector<Card> card,int player)
     {
-        
+        graveyard.get(player).addAll(card);
     }
     public void addCardsToOutOfPlayPile(Vector<Card> card,int player)
     {
-        
+     outOfPlayPile.get(player).addAll(card);   
     }
     public void attack(Card attackingCard, Card DefendingCard,int attackingPlayer)
     {
@@ -114,24 +110,39 @@ public class table
     }
     public Vector<Card> selectGrave(int player)
     {
-        return this.graveyard.get(player);
+        return graveyard.get(player);
     }
     
     /**
      * adds a card to the field depending on the part of the field and the player
      * @param card
-     * @param part
+     * @param zone
      * @param player
      */
-    private void addCard(Card card,int part, int player)
+    private void addCard(Card card,int zone, int player,boolean faceUp,boolean defence)
     {
-        for(int i =0;i<5;i++)
+        switch(zone)
         {
-            if(field[player][part][i]==null)
+            case 1:
+            for(int i =0;i<5;i++)
             {
-                field[player][part][i] =card;
-                break;
+                if(monsterZone[player][i]==null)
+                {
+                    monsterZone[player][i] = new MonsterZone(card,faceUp,defence);
+                    break;
+                }
             }
+            break;
+            case 0:
+                for(int i =0;i<5;i++)
+                {
+                    if(spellZone[player][i]==null)
+                    {
+                        spellZone[player][i] = new SpellZone(card,faceUp);
+                        break;
+                    }
+                }
+                break;
         }
     }
     
