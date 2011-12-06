@@ -69,35 +69,11 @@ public class CardAttriubtes
     }
     public enum SubType
     {
-    	Spellcaster
-    	Machine
-    	Fiend
-    	Rock
-    	Insect
-    	Warrior
-    	Plant
-    	Dragon
-    	Reptile
-    	Thunder
-    	Fiend/Tuner
-    	Beast-Warrior
-    	Beast
-    	Psychic
-    	Sea SERPANT
-    	FAIRY
-    	PYRO
-    	NORMAL
-    	EQUIP
-    	CONTINUOUS
-    	FIELD
-    	RITUAL
-    	QUICK-PLAY
-    	COUNTER
-    	WINGED BEAST
-    	ZOMBIE
-    	FISH
-    	AQUA
-    	DINOSAOR
+    	SPELLCASTER,MACHINE,FIEND,ROCK,INSECT,WARRIOR,
+    	PLANT,DRAGON,REPTILE,THUNDER,BEAST_WARRIOR,BEAST,
+    	PSYCHIC,Sea_SERPANT,FAIRY,PYRO,NORMAL,EQUIP,
+    	CONTINUOUS,FIELD,RITUAL,QUICK_PLAY,COUNTER,
+    	WINGED_BEAST,ZOMBIE,FISH,AQUA,DINOSAOR;
     }
 }
 
