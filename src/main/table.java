@@ -5,7 +5,19 @@ import java.util.Vector;
 
 public class table
 {
-    
+    Thread cardPlayedtrigger = new Thread(new Runnable() {
+        
+        @Override
+        public void run()
+        {
+            Card playedcard = null;
+            for(int i =0;i<triggerList.size();i++)
+            {
+                triggerList.get(0).triggerEffect(playedcard);
+            }
+        }
+    });
+    Vector<Card> triggerList = new Vector<Card>();
     Vector<Vector<Card>> hands = new Vector<Vector<Card>>(2);
     Vector<Vector<Card>> deck = new Vector<Vector<Card>>(2);
     Vector<Vector<Card>> graveyard = new Vector<Vector<Card>>(2);
@@ -122,6 +134,7 @@ public class table
             }
         }
     }
+    
     
     
 }
