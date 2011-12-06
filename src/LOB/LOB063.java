@@ -9,7 +9,7 @@ public  class LOB063 extends Card
 {
 public LOB063()
 {
- super("LOB","Tyhone","LOB-063","/images/lob/LOB-063.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.WIND,SubType.WINGED-BEAST,4,1200,1400,"Capable of firing cannonballs from its mouth for long-range attacks, this creature is particularly effective in mountain battles.");
+ super("LOB","Tyhone","LOB-063","/images/lob/LOB-063.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.WIND,SubType.WINGED_BEAST,4,1200,1400,"Capable of firing cannonballs from its mouth for long-range attacks, this creature is particularly effective in mountain battles.");
 }  
     public void mainEffect(table gameTable,int mainPlayer)
     {}

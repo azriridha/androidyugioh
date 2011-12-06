@@ -9,7 +9,7 @@ public  class MRD125 extends Card
 {
 public MRD125()
 {
- super("MRD","Garnecia Elefantis","MRD-125","/images/mrd/MRD-125.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.EARTH,SubType.BEAST-WARRIOR,7,2400,2000,"A monster so heavy that each step rocks the earth.");
+ super("MRD","Garnecia Elefantis","MRD-125","/images/mrd/MRD-125.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.EARTH,SubType.BEAST_WARRIOR,7,2400,2000,"A monster so heavy that each step rocks the earth.");
 }  
     public void mainEffect(table gameTable,int mainPlayer)
     {}

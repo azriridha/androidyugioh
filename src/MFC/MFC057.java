@@ -9,7 +9,7 @@ public  class MFC057 extends Card
 {
 public MFC057()
 {
- super("MFC","Sonic Duck","MFC-057","/images/mfc/MFC-057.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.WIND,SubType.WINGED-BEAST,3,1700,700,"A duck which can walk at a sonic speed. Sometimes, he cannot deal with his incredible pace and loses control."");
+ super("MFC","Sonic Duck","MFC-057","/images/mfc/MFC-057.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.WIND,SubType.WINGED_BEAST,3,1700,700,"A duck which can walk at a sonic speed. Sometimes, he cannot deal with his incredible pace and loses control.");
 }  
     public void mainEffect(table gameTable,int mainPlayer)
     {}

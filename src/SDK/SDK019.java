@@ -9,7 +9,7 @@ public  class SDK019 extends Card
 {
 public SDK019()
 {
- super("SDK","Ogre of the Black Shadow","SDK-019","/images/sdk/SDK-019.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.EARTH,SubType.BEAST-WARRIOR,4,1200,1400,"An ogre possessed by the powers of the dark. Few can withstand its rapid charge.");
+ super("SDK","Ogre of the Black Shadow","SDK-019","/images/sdk/SDK-019.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.EARTH,SubType.BEAST_WARRIOR,4,1200,1400,"An ogre possessed by the powers of the dark. Few can withstand its rapid charge.");
 }  
     public void mainEffect(table gameTable,int mainPlayer)
     {}

@@ -9,7 +9,7 @@ public  class LOB103 extends Card
 {
 public LOB103()
 {
- super("LOB","Spike Seadra","LOB-103","/images/lob/LOB-103.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.WATER,SubType.SEA-SERPENT,5,1600,1300,"Using the spikes sprouting from its body, this creature stabs its opponents and floods them with electricity.");
+ super("LOB","Spike Seadra","LOB-103","/images/lob/LOB-103.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.WATER,SubType.SEA_SERPENT,5,1600,1300,"Using the spikes sprouting from its body, this creature stabs its opponents and floods them with electricity.");
 }  
     public void mainEffect(table gameTable,int mainPlayer)
     {}

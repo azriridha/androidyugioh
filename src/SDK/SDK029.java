@@ -9,7 +9,7 @@ public  class SDK029 extends Card
 {
 public SDK029()
 {
- super("SDK","Skull Red Bird","SDK-029","/images/sdk/SDK-029.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.WIND,SubType.WINGED-BEAST,4,1550,1200,"This monster swoops down and attacks with a rain of knives stored in its wings.");
+ super("SDK","Skull Red Bird","SDK-029","/images/sdk/SDK-029.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.WIND,SubType.WINGED_BEAST,4,1550,1200,"This monster swoops down and attacks with a rain of knives stored in its wings.");
 }  
     public void mainEffect(table gameTable,int mainPlayer)
     {}

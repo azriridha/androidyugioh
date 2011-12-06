@@ -9,7 +9,7 @@ public  class RDSEN004 extends Card
 {
 public RDSEN004()
 {
- super("RDS","Harpie Girl","RDS-EN004","/images/rds/RDS-EN004.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.WIND,SubType.WINGED-BEAST,2,500,500,"A Harpie chick who aspires to flit about beautifully and gorgeously, but attack sharply.");
+ super("RDS","Harpie Girl","RDS-EN004","/images/rds/RDS-EN004.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.WIND,SubType.WINGED_BEAST,2,500,500,"A Harpie chick who aspires to flit about beautifully and gorgeously, but attack sharply.");
 }  
     public void mainEffect(table gameTable,int mainPlayer)
     {}

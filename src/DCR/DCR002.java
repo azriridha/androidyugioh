@@ -9,7 +9,7 @@ public  class DCR002 extends Card
 {
 public DCR002()
 {
- super("DCR","Nin-Ken Dog","DCR-002","/images/dcr/DCR-002.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.WIND,SubType.BEAST-WARRIOR,4,1800,1000,"A Ninja dog who has mastered extreme Ninjitsu. Through hard training, it learned the technique to metamorphose into a human being.");
+ super("DCR","Nin-Ken Dog","DCR-002","/images/dcr/DCR-002.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.WIND,SubType.BEAST_WARRIOR,4,1800,1000,"A Ninja dog who has mastered extreme Ninjitsu. Through hard training, it learned the technique to metamorphose into a human being.");
 }  
     public void mainEffect(table gameTable,int mainPlayer)
     {}
