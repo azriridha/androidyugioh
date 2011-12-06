@@ -9,7 +9,7 @@ public  class MRD111 extends Card
 {
 public MRD111()
 {
- super("MRD","Flame Cerberus","MRD-111","/images/mrd/MRD-111.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.FIRE,SubType.PYRO,6,2100,1800,"Known to many as the "Burning Executioner", this monster is capable of burning enemies to cinders.");
+ super("MRD","Flame Cerberus","MRD-111","/images/mrd/MRD-111.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.FIRE,SubType.PYRO,6,2100,1800,"Known to many as the \"Burning Executioner\", this monster is capable of burning enemies to cinders.");
 }  
     public void mainEffect(table gameTable,int mainPlayer)
     {}

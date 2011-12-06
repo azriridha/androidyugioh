@@ -9,7 +9,7 @@ public  class LOB039 extends Card
 {
 public LOB039()
 {
- super("LOB","Kurama","LOB-039","/images/lob/LOB-039.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.WIND,SubType.WINGED-BEAST,3,800,800,"A vicious bird that attacks from the skies with its whip-like tail.");
+ super("LOB","Kurama","LOB-039","/images/lob/LOB-039.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.WIND,SubType.WINGED_BEAST,3,800,800,"A vicious bird that attacks from the skies with its whip-like tail.");
 }  
     public void mainEffect(table gameTable,int mainPlayer)
     {}

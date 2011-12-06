@@ -9,7 +9,7 @@ public  class LOB016 extends Card
 {
 public LOB016()
 {
- super("LOB","Flame Manipulator","LOB-016","/images/lob/LOB-016.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.FIRE,SubType.SPELLCASTER,3,900,1000,"This Spellcaster attacks enemies with fire-related spells such as "Sea of Flames" and "Wall of Fire".");
+ super("LOB","Flame Manipulator","LOB-016","/images/lob/LOB-016.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.FIRE,SubType.SPELLCASTER,3,900,1000,"This Spellcaster attacks enemies with fire-related spells such as \"Sea of Flames\" and \"Wall of Fire\".");
 }  
     public void mainEffect(table gameTable,int mainPlayer)
     {}

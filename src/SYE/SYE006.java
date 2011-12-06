@@ -9,7 +9,7 @@ public  class SYE006 extends Card
 {
 public SYE006()
 {
- super("SYE","Beaver Warrior","SYE-006","/images/sye/SYE-006.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.EARTH,SubType.BEAST-WARRIOR,4,1200,1500,"What this creature lacks in size it makes up for in defense when battling in the prairie.");
+ super("SYE","Beaver Warrior","SYE-006","/images/sye/SYE-006.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.EARTH,SubType.BEAST_WARRIOR,4,1200,1500,"What this creature lacks in size it makes up for in defense when battling in the prairie.");
 }  
     public void mainEffect(table gameTable,int mainPlayer)
     {}

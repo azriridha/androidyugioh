@@ -9,7 +9,7 @@ public  class LOB021 extends Card
 {
 public LOB021()
 {
- super("LOB","Fiend Reflection #2","LOB-021","/images/lob/LOB-021.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.LIGHT,SubType.WINGED-BEAST,4,1100,1400,"A bird-beast that summons reinforcements with a hand mirror.");
+ super("LOB","Fiend Reflection #2","LOB-021","/images/lob/LOB-021.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.LIGHT,SubType.WINGED_BEAST,4,1100,1400,"A bird-beast that summons reinforcements with a hand mirror.");
 }  
     public void mainEffect(table gameTable,int mainPlayer)
     {}

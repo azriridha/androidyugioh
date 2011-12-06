@@ -9,7 +9,7 @@ public  class SODEN004 extends Card
 {
 public SODEN004()
 {
- super("SOD","Goblin Calligrapher","SOD-EN004","/images/sod/SOD-EN004.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.DARK,SubType.FIEND,1,400,400,"A Goblin who devotes himself to perfect calligraphy of the word "False". He gives his all to each stroke.");
+ super("SOD","Goblin Calligrapher","SOD-EN004","/images/sod/SOD-EN004.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.DARK,SubType.FIEND,1,400,400,"A Goblin who devotes himself to perfect calligraphy of the word \"False\". He gives his all to each stroke.");
 }  
     public void mainEffect(table gameTable,int mainPlayer)
     {}

@@ -9,7 +9,7 @@ public  class MRL011 extends Card
 {
 public MRL011()
 {
- super("MRL","Peacock","MRL-011","/images/mrl/MRL-011.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.WIND,SubType.WINGED-BEAST,5,1700,1500,"A large peacock that launches its feathers in a lethal attack.");
+ super("MRL","Peacock","MRL-011","/images/mrl/MRL-011.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.WIND,SubType.WINGED_BEAST,5,1700,1500,"A large peacock that launches its feathers in a lethal attack.");
 }  
     public void mainEffect(table gameTable,int mainPlayer)
     {}

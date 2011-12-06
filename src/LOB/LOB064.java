@@ -9,7 +9,7 @@ public  class LOB064 extends Card
 {
 public LOB064()
 {
- super("LOB","Beaver Warrior","LOB-064","/images/lob/LOB-064.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.EARTH,SubType.BEAST-WARRIOR,4,1200,1500,"What this creature lacks in size it makes up for in defense when battling in the prairie.");
+ super("LOB","Beaver Warrior","LOB-064","/images/lob/LOB-064.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.EARTH,SubType.BEAST_WARRIOR,4,1200,1500,"What this creature lacks in size it makes up for in defense when battling in the prairie.");
 }  
     public void mainEffect(table gameTable,int mainPlayer)
     {}

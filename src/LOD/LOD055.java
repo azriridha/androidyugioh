@@ -9,7 +9,7 @@ public  class LOD055 extends Card
 {
 public LOD055()
 {
- super("LOD","Roboyarou","LOD-055","/images/lod/LOD-055.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.EARTH,SubType.MACHINE,3,900,450,"A warrior fully covered with metal. It upgrades by fusing with "Robolady".");
+ super("LOD","Roboyarou","LOD-055","/images/lod/LOD-055.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.EARTH,SubType.MACHINE,3,900,450,"A warrior fully covered with metal. It upgrades by fusing with \"Robolady\".");
 }  
     public void mainEffect(table gameTable,int mainPlayer)
     {}

@@ -9,7 +9,7 @@ public  class LOB002 extends Card
 {
 public LOB002()
 {
- super("LOB","Hitotsu-Me Giant","LOB-002","/images/lob/LOB-002.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.EARTH,SubType.BEAST-WARRIOR,4,1200,1000,"A one-eyed behemoth with thick, powerful arms made for delivering punishing blows.");
+ super("LOB","Hitotsu-Me Giant","LOB-002","/images/lob/LOB-002.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.EARTH,SubType.BEAST_WARRIOR,4,1200,1000,"A one-eyed behemoth with thick, powerful arms made for delivering punishing blows.");
 }  
     public void mainEffect(table gameTable,int mainPlayer)
     {}

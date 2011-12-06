@@ -9,7 +9,7 @@ public  class MRD112 extends Card
 {
 public MRD112()
 {
- super("MRD","Niwatori","MRD-112","/images/mrd/MRD-112.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.EARTH,SubType.WINGED-BEAST,3,900,800,"Swallows enemies whole and uses their essence as energy.");
+ super("MRD","Niwatori","MRD-112","/images/mrd/MRD-112.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.EARTH,SubType.WINGED_BEAST,3,900,800,"Swallows enemies whole and uses their essence as energy.");
 }  
     public void mainEffect(table gameTable,int mainPlayer)
     {}

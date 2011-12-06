@@ -9,7 +9,7 @@ public  class SDJ011 extends Card
 {
 public SDJ011()
 {
- super("SDJ","Harpie's Brother","SDJ-011","/images/sdj/SDJ-011.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.WIND,SubType.WINGED-BEAST,4,1800,600,"With eyes like a hawk and a flying speed exceeding Mach 5, this monster is a master of the sky.");
+ super("SDJ","Harpie's Brother","SDJ-011","/images/sdj/SDJ-011.jpg",CardType.MONSTER,MonsterType.NORMAL,null,null,Attribute.WIND,SubType.WINGED_BEAST,4,1800,600,"With eyes like a hawk and a flying speed exceeding Mach 5, this monster is a master of the sky.");
 }  
     public void mainEffect(table gameTable,int mainPlayer)
     {}
