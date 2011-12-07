@@ -20,8 +20,8 @@ public  class SDY030 extends Card
     public void mainEffect(table gameTable,int mainPlayer)
     {
         Vector<Card> graveList = new Vector<Card>();
-        graveList.addAll(gameTable.selectGrave(0));
-        graveList.addAll(gameTable.selectGrave(1));
+        graveList.addAll(table.graveyard.get(0));
+        graveList.addAll(table.graveyard.get(1));
         
         gameTable.addMonsterToField(utils.chooseCards(graveList,1).get(0), mainPlayer,true);
     }
