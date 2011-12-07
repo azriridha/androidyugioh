@@ -68,28 +68,28 @@ abstract public class Card
     abstract public void triggerEffect(Card cardPlayed);
 
 
-    private Effect myClassloader(String className)
-    {
-        Effect tmp = null;
-        try
-        {
-            Class classToLoad = Class.forName(className);
-            tmp = (Effect) classToLoad.newInstance();
-        }
-        catch (ClassNotFoundException e)
-        {
-            System.err.println("Could not load class " + className);
-        }
-        catch (InstantiationException e)
-        {
-            System.err.println("Could not instantiate a new instance of Effect from " + className);
-        }
-        catch (IllegalAccessException e)
-        {
-
-        }
-
-        return tmp;
-    }
+//    private Effect myClassloader(String className)
+//    {
+//        Effect tmp = null;
+//        try
+//        {
+//            Class classToLoad = Class.forName(className);
+//            tmp = (Effect) classToLoad.newInstance();
+//        }
+//        catch (ClassNotFoundException e)
+//        {
+//            System.err.println("Could not load class " + className);
+//        }
+//        catch (InstantiationException e)
+//        {
+//            System.err.println("Could not instantiate a new instance of Effect from " + className);
+//        }
+//        catch (IllegalAccessException e)
+//        {
+//
+//        }
+//
+//        return tmp;
+//    }
 
 }
