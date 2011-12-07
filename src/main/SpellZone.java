@@ -16,13 +16,13 @@ public class SpellZone
     public SpellZone(Card Card, boolean faceUp)
     {
         this.currentCard = Card;
-        this.cardType = Card.type;
+        this.cardType = Card.cardType;
         this.faceUp = faceUp;
-        if(Card.type == CardType.SPELL)
+        if(Card.cardType == CardType.SPELL)
         {
             this.spellType = Card.spellType;
         }
-        else if(Card.type == CardType.TRAP)
+        else if(Card.cardType == CardType.TRAP)
         {
             this.trapType = Card.trapType;
         }

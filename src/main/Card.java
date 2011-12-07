@@ -13,7 +13,7 @@ abstract public class Card
     public final String cardName;
     public final String cardCode;
     public final String cardImageURL;
-    public final CardType type;
+    public final CardType cardType;
     public final MonsterType monsterType;
     public final SpellType spellType;
     public final TrapTypes trapType;
@@ -30,7 +30,7 @@ abstract public class Card
        this.cardName = "";
        this.cardCode = "";
        this.cardImageURL = "";
-       this.type = null;
+       this.cardType = null;
        this.monsterType = null;
        this.spellType = null;
        this.trapType = null;
@@ -49,7 +49,7 @@ abstract public class Card
         this.cardName = cardName;
         this.cardCode = cardCode;
         this.cardImageURL = cardImageURL;
-        this.type = type;
+        this.cardType = type;
         this.monsterType = monsterType;
         this.spellType = spellType;
         this.trapType = trapType;
