@@ -5,8 +5,10 @@ import java.util.Vector;
 
 public class table
 {
-    public static int SPELLZONE = 0;
-    public static int MONSTERZONE = 1;
+    public static final int SPELLZONE = 0;
+    public static final int MONSTERZONE = 1;
+    public static final int PLAYER1 = 1;
+    public static final int PLAYER2 = 2;
     
     Thread cardPlayedtrigger = new Thread(new Runnable() {
         
@@ -33,6 +35,11 @@ public class table
     
     public static int[] lifepoints = new int[2];
     
+    
+    public void drawCard(int player, int numberOfCards)
+    {
+        utils.drawCards(player, numberOfCards);
+    }
 /**
  * Adds a card to the field in atk/def faceup/down
  * @param card
@@ -94,23 +101,23 @@ public class table
    
     public void addCardsToGraveyard(Vector<Card> card,int player)
     {
-        graveyard.get(player).addAll(card);
+        utils.addCardToGrave(card, player);   
     }
     public void addCardsToOutOfPlayPile(Vector<Card> card,int player)
     {
-     outOfPlayPile.get(player).addAll(card);   
+        utils.addCardToOutOfPlay(card, player);   
     }
-    public void attack(Card attackingCard, Card DefendingCard,int attackingPlayer)
+    public void attack(int attackingCard, int DefendingCard,int attackingPlayer)
     {
-        
+        utils.attack(attackingCard, DefendingCard, attackingPlayer, (attackingPlayer==PLAYER1)? PLAYER2:PLAYER1);
     }
-    public void attack(Card attackingCard,int attackingPlayer)
+    public void attack(int attackingCard,int attackingPlayer)
     {
-        
+        utils.attack(attackingCard, -1, attackingPlayer, (attackingPlayer==PLAYER1)? PLAYER2:PLAYER1);
     }
-    public Vector<Card> selectGrave(int player)
+    public Vector<Card> selectGrave(int player, int numberOfCards)
     {
-        return graveyard.get(player);
+        return utils.chooseCards(graveyard.get(player), numberOfCards);
     }
     
     /**
@@ -123,22 +130,22 @@ public class table
     {
         switch(zone)
         {
-            case 1:
+            case MONSTERZONE:
             for(int i =0;i<5;i++)
             {
                 if(monsterZone[player][i]==null)
                 {
-                    monsterZone[player][i] = new MonsterZone(card,faceUp,defence);
+                    utils.addCard(i, player, new MonsterZone(card,faceUp,defence));
                     break;
                 }
             }
             break;
-            case 0:
+            case SPELLZONE:
                 for(int i =0;i<5;i++)
                 {
                     if(spellZone[player][i]==null)
-                    {
-                        spellZone[player][i] = new SpellZone(card,faceUp);
+                    {       
+                        utils.addCard(i, player, new SpellZone(card,faceUp));
                         break;
                     }
                 }
