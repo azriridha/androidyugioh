@@ -6,7 +6,7 @@ import javax.swing.*;
 
 public class RotatePanel extends JPanel {
    private Image image;
-   private double currentAngle;
+   private static double currentAngle;
 
    public RotatePanel(Image image) {
      this.image = image;
@@ -55,7 +55,7 @@ public class RotatePanel extends JPanel {
      Container cp = f.getContentPane();
      cp.setLayout(new BorderLayout());
      Image testImage =
-         Toolkit.getDefaultToolkit().getImage("SDY-002.jpg");
+         Toolkit.getDefaultToolkit().getImage("images/SDY/SDY-002.jpg");
      final RotatePanel rotatePanel = new RotatePanel(testImage);
      JButton b = new JButton ("Rotate");
      
@@ -73,7 +73,7 @@ public class RotatePanel extends JPanel {
         @Override
         public void run()
         {
-            while(true)
+            while(currentAngle <90)
             {
                 rotatePanel.rotate();
                 try
