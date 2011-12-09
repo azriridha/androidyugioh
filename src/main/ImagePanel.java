@@ -5,6 +5,7 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -15,11 +16,16 @@ public class ImagePanel extends JPanel{
 
     private BufferedImage image;
     private BufferedImage card;
+    private Vector<BufferedImage> cards= new Vector<BufferedImage>();
 
     public ImagePanel() {
        try {                
           image = ImageIO.read(new File("mat.jpg"));
-            card = ImageIO.read(new File("images/SDY/SDY-001.jpg"));
+            card = ImageIO.read(new File("cardback.jpg"));
+            for(int i=0;i<40;i++)
+            {
+                cards.add(card);
+            }
        } catch (IOException ex) {
             // handle exception...
        }
@@ -29,7 +35,10 @@ public class ImagePanel extends JPanel{
     public void paintComponent(Graphics g) {
         g.drawImage(image, 0, 0, null); // see javadoc for more info on the parameters
         
-        g.drawImage(card.getScaledInstance(121,176, 0), 35, 53,null);
+        for(int i =0;i<20;i++){
+            g.drawImage(cards.get(i).getScaledInstance(121,176, 0), (int)(Math.random()*1245), (int)(Math.random()*726),null);    
+        }
+        
        
     }
 
@@ -59,7 +68,7 @@ class mouseListener implements MouseInputListener
     @Override
     public void mouseClicked(MouseEvent paramMouseEvent)
     {
-      System.out.println(paramMouseEvent.getComponent().getGraphics().);
+      System.out.println(paramMouseEvent.getX()+" "+paramMouseEvent.getY());
     }
 
     @Override
@@ -93,14 +102,13 @@ class mouseListener implements MouseInputListener
     @Override
     public void mouseDragged(MouseEvent paramMouseEvent)
     {
-        // TODO Auto-generated method stub
+        
         
     }
 
     @Override
     public void mouseMoved(MouseEvent paramMouseEvent)
     {
-        // TODO Auto-generated method stub
         
     }
     
