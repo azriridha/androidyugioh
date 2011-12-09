@@ -5,6 +5,7 @@ import main.CardAttriubtes.Attribute;
 import main.CardAttriubtes.MonsterType;
 import main.CardAttriubtes.SubType;
 import main.table;
+import main.utils;
 public  class SDY046 extends Card
 {
 public SDY046()
@@ -17,6 +18,11 @@ public SDY046()
     public void secondEffect(table gameTable,int mainPlayer)
     {}
     @Override
-    public void triggerEffect(Card cardPlayed)
-    {}
+    public void triggerEffect(Card cardPlayed, int player)
+    {
+        if(cardPlayed.getFlipped())
+        {
+            utils.destroMonster(player);
+        }
+    }
 }

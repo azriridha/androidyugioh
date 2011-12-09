@@ -17,6 +17,6 @@ public LOB032()
     public void secondEffect(table gameTable,int mainPlayer)
     {}
     @Override
-    public void triggerEffect(Card cardPlayed)
+    public void triggerEffect(Card cardPlayed, int player)
     {}
 }
