@@ -25,12 +25,25 @@ public class CardAttriubtes
             These cards are needed to summon a Ritual Monster. After the Ritual Monster Summon, it is destroyed together with the required Tribute monster (s).
             These types of Magic Cards will be included in future Yu-Gi-Oh! releases.
         **/
-        NORMAL,CONTINUOUS,Equip,Field,QUICKPLAY,Ritual;
+        NORMAL,CONTINUOUS,EQUIP,FIELD,QUICKPLAY,RITUAL;
     }
 
     public enum MonsterType
     {
-        NORMAL,EFFECT,FUSION,RITUAL;
+        EFFECT,                                                     
+        NORMAL ,                                                    
+        TUNER,                                                      
+        SPIRIT,                                                     
+        UNION,                                                      
+        RITUAL_EFFECT,                                              
+        SYNCHRO_EFFECT,                                             
+        FUSION_EFFECT,                                              
+        GEMINI,                                                     
+        FUSION,                                                     
+        SYNCHRO,                                                    
+        XYZ_EFFECT,                                                 
+        RITUAL,                                                     
+        TOON ;
     }
     /**
      * A. FLIP 
@@ -60,7 +73,7 @@ public class CardAttriubtes
      */
     public enum TrapTypes
     {
-        NORMAL,COUNTER,COUNTINUOUS;
+        NORMAL,COUNTER,CONTINUOUS;
     }
     
     public enum Attribute
