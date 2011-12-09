@@ -4,6 +4,7 @@ import main.CardAttriubtes.CardType;
 import main.CardAttriubtes.SubType;
 import main.CardAttriubtes.TrapTypes;
 import main.table;
+import main.utils;
 public  class SDY049 extends Card
 {
 public SDY049()
@@ -16,6 +17,8 @@ public SDY049()
     public void secondEffect(table gameTable,int mainPlayer)
     {}
     @Override
-    public void triggerEffect(Card cardPlayed)
-    {}
+    public void triggerEffect(Card cardPlayed, int player)
+    {
+        utils.changeDefenceValue(500, 1, player);
+    }
 }

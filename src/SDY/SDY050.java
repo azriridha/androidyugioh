@@ -1,5 +1,6 @@
 package SDY;
 import main.Card;
+import main.utils;
 import main.CardAttriubtes.CardType;
 import main.CardAttriubtes.SubType;
 import main.CardAttriubtes.TrapTypes;
@@ -16,6 +17,9 @@ public SDY050()
     public void secondEffect(table gameTable,int mainPlayer)
     {}
     @Override
-    public void triggerEffect(Card cardPlayed)
-    {}
+    public void triggerEffect(Card cardPlayed, int player)
+    {
+        utils.changePlayerLifePoints(player,-500);
+        table.canSummon[player]=true;
+    }
 }
