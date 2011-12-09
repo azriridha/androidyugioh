@@ -23,6 +23,7 @@ abstract public class Card
     public final int attack;
     public final int defence;
     public final String description;
+    private boolean flipped;
 
    public Card()
 {
@@ -65,8 +66,15 @@ abstract public class Card
 
     abstract public void secondEffect(table gameTable,int mainPlayer);
 
-    abstract public void triggerEffect(Card cardPlayed);
-
+    abstract public void triggerEffect(Card cardPlayed, int player);
+    public boolean getFlipped()
+    {
+        return this.flipped;
+    }
+    public void setFlipped(boolean value)
+    {
+        this.flipped =value;
+    }
 
 //    private Effect myClassloader(String className)
 //    {
