@@ -18,7 +18,7 @@ public class table
             Card playedcard = null;
             for(int i =0;i<triggerList.size();i++)
             {
-                triggerList.get(0).triggerEffect(playedcard);
+                triggerList.get(0).triggerEffect(playedcard, null);
             }
         }
     });
@@ -34,6 +34,8 @@ public class table
     public static SpellZone[][] spellZone = new SpellZone[2][5];
     
     public static int[] lifepoints = new int[2];
+    
+    public static boolean[] canSummon = new boolean[2];
     
     
     public void drawCard(int player, int numberOfCards)
