@@ -1,5 +1,7 @@
 package main;
 
+import nettyPipeline.CardPiplineSegment;
+import backend.events.Event;
 import backend.pipeline.Segment;
 import main.CardAttriubtes.Attribute;
 import main.CardAttriubtes.CardType;
@@ -8,7 +10,7 @@ import main.CardAttriubtes.SpellType;
 import main.CardAttriubtes.SubType;
 import main.CardAttriubtes.TrapTypes;
 
-abstract public class Card implements Segment
+public abstract class Card extends CardPiplineSegment
 {
     public final String packCode;
     public final String cardName;
@@ -70,5 +72,8 @@ abstract public class Card implements Segment
     public void setFlipped(boolean value) {
         this.flipped = value;
     }
+
+    @Override
+   abstract public void handleEvent(Event event);
 
 }

@@ -2,6 +2,14 @@ package main;
 
 import java.util.Vector;
 
+import backend.chain.ActionChain;
+import backend.events.Attack;
+import backend.events.Draw;
+import backend.events.Event;
+import backend.events.RemovedFromPlay;
+import backend.events.Set;
+import backend.pipeline.Pipeline;
+
 import main.CardAttriubtes.CardType;
 import main.CardAttriubtes.SubType;
 
@@ -11,27 +19,35 @@ private static final int MONSTER = 1;
 private static final int SPELL_TRAP = 0; 
 private static final int ATTACK = 0;
 private static final int DEFENCE =1;
-
+private static Pipeline pipeline = new Pipeline();
+private static ActionChain actionChain = new ActionChain();
 
 public static void toManyCards(int player)
 {
     int cards = table.hands.get(player).size()-5;
-    //TODO sho dialog to remove x number of cards
+    //TODO show dialog to remove x number of cards
     int[] dicard =new int[cards];
     Vector<Card> discard = new Vector<Card>();
-    
-        addCardToGrave(discard, player);
+    for(Card card : discard){
+    pipeline.removeEvent(card);
+    }
+    addCardToGrave(discard, player);
     
 }
     public static void drawCards(int player, int numberOfCards)
     {
         for(int i =0;i<numberOfCards;i++)
         {
-            Card toadd = table.deck.get(player).remove(i);
+            Card toadd = table.deck.get(player).firstElement();
+            Draw d = new Draw() {};
+            pipeline.addSegment(toadd);
+            pipeline.fireNewEvent(d);
             table.hands.get(player).add(toadd);
         }
     }
-
+public static void moveCards(Object from, Object to, int number, Event event){
+    
+}
     public static Vector<Card> chooseCards(Vector<Card> cardList, int numberOfCards)
     {
         Vector<Card> tmp = new Vector<Card>();
@@ -46,7 +62,12 @@ public static void toManyCards(int player)
     }
     public static void addCardToOutOfPlay(Vector<Card> cardList, int player)
     {
-        table.graveyard.get(player).addAll(cardList);
+        for(Card card : cardList){
+            pipeline.removeEvent(card);
+            RemovedFromPlay removedFromPlay = new RemovedFromPlay() {};
+            pipeline.fireNewEvent(removedFromPlay);
+        }
+        table.outOfPlayPile.get(player).addAll(cardList);
     }
     
     public static boolean askDefence(Card card)
@@ -62,17 +83,28 @@ public static void toManyCards(int player)
         
         return tmp;
     }
-    public static void addCard(int index,int player , MonsterZone monsterCard)
+    public static <T> void addCard(int index,int player , T card)
     {
-        table.monsterZone[player][index] = monsterCard;
-    }
-    public static void addCard(int index,int player , SpellZone spellCard)
-    {
-        table.spellZone[player][index] = spellCard;
+        Object zone = (Object) card;
+        if(zone instanceof MonsterZone){
+            Set newSet = new Set() {};
+            //player is going to set
+            pipeline.fireNewEvent(newSet);
+            table.monsterZone[player][index] = (MonsterZone)card;
+//            pipeline.addSegment(card);
+          //player is has set
+            pipeline.fireNewEvent(newSet);
+        }
+        else if(zone instanceof SpellZone){
+            table.spellZone[player][index] = (SpellZone)card;    
+        }
     }
     
     public static void attack(int attacker, int defender, int attackingPLayer, int defendingPlayer)
     {
+        Attack attack = new Attack() {};
+        //going to attack
+        pipeline.fireNewEvent(attack);
         if(defender ==-1)
         {
             directAttack(attacker, attackingPLayer, defendingPlayer);
@@ -85,10 +117,15 @@ public static void toManyCards(int player)
     private static void directAttack(int attacker, int attackingPlayer, int defendingPlayer)
     {
         table.lifepoints[defendingPlayer] -= table.monsterZone[attackingPlayer][attacker].currentCard.attack;
+        Attack attack = new Attack() {};
+        //going to attack
+        pipeline.fireNewEvent(attack);
     }
     private static void cardsAttack(int attacker, int defender, int attackingPlayer, int defendingPlayer)
     {
-        
+        Attack monsterAttack = new Attack() {};
+        //going to attack
+        pipeline.fireNewEvent(monsterAttack);
         if(!table.monsterZone[defendingPlayer][defender].faceUp)
         {
          showFaceDown(defender);    
