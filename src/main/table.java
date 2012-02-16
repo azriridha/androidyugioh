@@ -18,7 +18,7 @@ public class table
             Card playedcard = null;
             for(int i =0;i<triggerList.size();i++)
             {
-                triggerList.get(0).triggerEffect(playedcard, null);
+//                triggerList.get(0).triggerEffect(playedcard, null);
             }
         }
     });
