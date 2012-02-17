@@ -16,17 +16,19 @@ abstract public class CardPiplineSegment extends SimpleChannelDownstreamHandler 
     }
     @Override
     public void writeRequested(ChannelHandlerContext ctx, MessageEvent e) throws Exception {
-        
+        boolean passdown =true;
         if(e.getMessage() instanceof ChannelBuffer){
             ChannelBuffer buff = (ChannelBuffer)e.getMessage();
             
             if(((Object)buff.array()) instanceof Event){
                 Event event = (Event)((Object)buff.array());
-                handleEvent(event);
+                passdown = handleEvent(event);
             }
         }
-        ctx.sendDownstream(e);
+        if(passdown){
+            ctx.sendDownstream(e);
+        }
     }
 
-    abstract public void handleEvent(Event event);
+    abstract public boolean handleEvent(Event event);
 }
