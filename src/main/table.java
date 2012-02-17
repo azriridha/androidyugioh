@@ -15,7 +15,7 @@ public class table
         @Override
         public void run()
         {
-            Card playedcard = null;
+//            Card playedcard = null;
             for(int i =0;i<triggerList.size();i++)
             {
 //                triggerList.get(0).triggerEffect(playedcard, null);

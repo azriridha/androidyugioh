@@ -37,7 +37,7 @@ for(String pageUrl : pages)
             in = new Scanner(new InputStreamReader(connection.getInputStream()));
 //            in = new Scanner(new File("new.txt"));
             String imgUrl ="";
-            boolean nectLine =false;
+//            boolean nectLine =false;
             while(in.hasNext())
             {
                 String line = in.nextLine();

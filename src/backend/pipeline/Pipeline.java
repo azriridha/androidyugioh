@@ -3,8 +3,6 @@ package backend.pipeline;
 import java.util.Vector;
 
 import nettyPipeline.CardPiplineSegment;
-
-import main.Card;
 import backend.events.Event;
 
 

@@ -7,7 +7,6 @@ import nettyPipeline.CardPipelineFactory;
 
 import org.jboss.netty.channel.Channel;
 
-import backend.chain.ActionChain;
 import backend.events.Event;
 import backend.events.EventType;
 
@@ -19,7 +18,6 @@ private static final int ATTACK = 0;
 private static final int DEFENCE =1;
 private static CardPipelineFactory pipeline = new CardPipelineFactory();
 
-private static ActionChain actionChain = new ActionChain();
 private static Channel channel;
 public utils() throws Exception {
  channel = pipeline.getPipeline().getChannel();
@@ -28,7 +26,8 @@ public static void toManyCards(int player)
 {
     int cards = table.hands.get(player).size()-5;
     //TODO show dialog to remove x number of cards
-    int[] dicard =new int[cards];
+//    int[] dicard =new int[cards];
+    moveCards(table.hands.get(player),table.graveyard.get(player),cards,EventType.DISCARD);
     Vector<Card> discard = new Vector<Card>();
     for(Card card : discard){
     pipeline.removeFromPipeLine(card);
@@ -47,13 +46,13 @@ public static void toManyCards(int player)
             table.hands.get(player).add(card);
         }
     }
-public static void moveCards(Object from, Object to, int number, Event event){
+public static void moveCards(Object from, Object to, int number, EventType event){
     
 }
     public static Vector<Card> chooseCards(Vector<Card> cardList, int numberOfCards)
     {
         Vector<Card> tmp = new Vector<Card>();
-        String message = "Choose "+numberOfCards+" "+((numberOfCards>1)? "cards": "card");
+//        String message = "Choose "+numberOfCards+" "+((numberOfCards>1)? "cards": "card");
         //open with selctable coverflow limit to the number specified
         return tmp;
         
