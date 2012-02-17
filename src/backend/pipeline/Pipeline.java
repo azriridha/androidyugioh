@@ -2,22 +2,25 @@ package backend.pipeline;
 
 import java.util.Vector;
 
+import nettyPipeline.CardPiplineSegment;
+
+import main.Card;
 import backend.events.Event;
 
 
 public class Pipeline {
 
-    private Vector<Segment> pipeline = new Vector<Segment>();
-    public void addSegment(Segment pipeSegment){
+    private Vector<CardPiplineSegment> pipeline = new Vector<CardPiplineSegment>();
+    public void addSegment(CardPiplineSegment pipeSegment){
         pipeline.add(pipeSegment);
     }
     
-    public void removeEvent(Segment pipeSegment){
+    public void removeEvent(CardPiplineSegment pipeSegment){
         pipeline.remove(pipeSegment);
     }
-    public void handleEvent(Event newEvent)
+    public void fireNewEvent(Event newEvent)
     {
-        for(Segment pipeSegment : pipeline)
+        for(CardPiplineSegment pipeSegment : pipeline)
         {
             pipeSegment.handleEvent(newEvent);
         }
