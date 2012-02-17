@@ -2,16 +2,14 @@ package main;
 
 import java.util.Vector;
 
-import backend.chain.ActionChain;
-import backend.events.Attack;
-import backend.events.Draw;
-import backend.events.Event;
-import backend.events.RemovedFromPlay;
-import backend.events.Set;
-import backend.pipeline.Pipeline;
-
-import main.CardAttriubtes.CardType;
 import main.CardAttriubtes.SubType;
+import nettyPipeline.CardPipelineFactory;
+
+import org.jboss.netty.channel.Channel;
+
+import backend.chain.ActionChain;
+import backend.events.Event;
+import backend.events.EventType;
 
 public class utils
 {
@@ -19,9 +17,13 @@ private static final int MONSTER = 1;
 private static final int SPELL_TRAP = 0; 
 private static final int ATTACK = 0;
 private static final int DEFENCE =1;
-private static Pipeline pipeline = new Pipeline();
-private static ActionChain actionChain = new ActionChain();
+private static CardPipelineFactory pipeline = new CardPipelineFactory();
 
+private static ActionChain actionChain = new ActionChain();
+private static Channel channel;
+public utils() throws Exception {
+ channel = pipeline.getPipeline().getChannel();
+}
 public static void toManyCards(int player)
 {
     int cards = table.hands.get(player).size()-5;
@@ -29,7 +31,7 @@ public static void toManyCards(int player)
     int[] dicard =new int[cards];
     Vector<Card> discard = new Vector<Card>();
     for(Card card : discard){
-    pipeline.removeEvent(card);
+    pipeline.removeFromPipeLine(card);
     }
     addCardToGrave(discard, player);
     
@@ -38,11 +40,11 @@ public static void toManyCards(int player)
     {
         for(int i =0;i<numberOfCards;i++)
         {
-            Card toadd = table.deck.get(player).firstElement();
-            Draw d = new Draw() {};
-            pipeline.addSegment(toadd);
-            pipeline.fireNewEvent(d);
-            table.hands.get(player).add(toadd);
+            Card card = table.deck.get(player).firstElement();
+            Event event = new Event(EventType.DRAW,card.cardCode);
+            pipeline.addToPipeLine(card);
+            channel.write(event);
+            table.hands.get(player).add(card);
         }
     }
 public static void moveCards(Object from, Object to, int number, Event event){
@@ -63,9 +65,9 @@ public static void moveCards(Object from, Object to, int number, Event event){
     public static void addCardToOutOfPlay(Vector<Card> cardList, int player)
     {
         for(Card card : cardList){
-            pipeline.removeEvent(card);
-            RemovedFromPlay removedFromPlay = new RemovedFromPlay() {};
-            pipeline.fireNewEvent(removedFromPlay);
+            pipeline.removeFromPipeLine(card);
+            Event event = new Event(EventType.REMOVEDFROMPLAY,card.cardCode);
+            channel.write(event);
         }
         table.outOfPlayPile.get(player).addAll(cardList);
     }
@@ -87,13 +89,13 @@ public static void moveCards(Object from, Object to, int number, Event event){
     {
         Object zone = (Object) card;
         if(zone instanceof MonsterZone){
-            Set newSet = new Set() {};
+//            Event newSet = new Event(EventType.SET,zone.c);TODO clean up
             //player is going to set
-            pipeline.fireNewEvent(newSet);
+//            channel.write(newSet);
             table.monsterZone[player][index] = (MonsterZone)card;
 //            pipeline.addSegment(card);
           //player is has set
-            pipeline.fireNewEvent(newSet);
+//            channel.write(newSet);
         }
         else if(zone instanceof SpellZone){
             table.spellZone[player][index] = (SpellZone)card;    
@@ -102,9 +104,6 @@ public static void moveCards(Object from, Object to, int number, Event event){
     
     public static void attack(int attacker, int defender, int attackingPLayer, int defendingPlayer)
     {
-        Attack attack = new Attack() {};
-        //going to attack
-        pipeline.fireNewEvent(attack);
         if(defender ==-1)
         {
             directAttack(attacker, attackingPLayer, defendingPlayer);
@@ -116,16 +115,18 @@ public static void moveCards(Object from, Object to, int number, Event event){
     }
     private static void directAttack(int attacker, int attackingPlayer, int defendingPlayer)
     {
+        Event event = new Event(EventType.ATTACK, table.monsterZone[attackingPlayer][attacker].currentCard.cardCode);
+        channel.write(event);
         table.lifepoints[defendingPlayer] -= table.monsterZone[attackingPlayer][attacker].currentCard.attack;
-        Attack attack = new Attack() {};
+        event.setEvent(EventType.ATTACK).setCardCode(table.monsterZone[attackingPlayer][attacker].currentCard.cardCode);
         //going to attack
-        pipeline.fireNewEvent(attack);
+        channel.write(event);
     }
     private static void cardsAttack(int attacker, int defender, int attackingPlayer, int defendingPlayer)
     {
-        Attack monsterAttack = new Attack() {};
+        Event event = new Event(EventType.ATTACK,"");
         //going to attack
-        pipeline.fireNewEvent(monsterAttack);
+        channel.write(event);
         if(!table.monsterZone[defendingPlayer][defender].faceUp)
         {
          showFaceDown(defender);    

@@ -74,6 +74,6 @@ public abstract class Card extends CardPiplineSegment
     }
 
     @Override
-   abstract public void handleEvent(Event event);
+   abstract public boolean handleEvent(Event event);
 
 }
