@@ -1,14 +1,13 @@
 package main;
 
-import nettyPipeline.CardPiplineSegment;
-import backend.events.Event;
-import backend.pipeline.Segment;
 import main.CardAttriubtes.Attribute;
 import main.CardAttriubtes.CardType;
 import main.CardAttriubtes.MonsterType;
 import main.CardAttriubtes.SpellType;
 import main.CardAttriubtes.SubType;
 import main.CardAttriubtes.TrapTypes;
+import nettyPipeline.CardPiplineSegment;
+import backend.events.Event;
 
 public abstract class Card extends CardPiplineSegment
 {
